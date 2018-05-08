@@ -7183,3 +7183,21 @@ NameError: name 'calendario' is not defined
 [2018-05-08 13:31:35 -0300] [3530] [INFO] Booting worker with pid: 3530
 [2018-05-08 13:31:35 -0300] [3531] [INFO] Booting worker with pid: 3531
 [2018-05-08 13:31:35 -0300] [3532] [INFO] Booting worker with pid: 3532
+[2018-05-08 13:31:54 -0300] [3531] [INFO] Worker exiting (pid: 3531)
+[2018-05-08 13:31:54 -0300] [3527] [INFO] Worker exiting (pid: 3527)
+[2018-05-08 13:31:54 -0300] [3530] [INFO] Worker exiting (pid: 3530)
+[2018-05-08 13:31:54 -0300] [3528] [INFO] Worker exiting (pid: 3528)
+[2018-05-08 13:31:54 -0300] [3525] [INFO] Worker exiting (pid: 3525)
+[2018-05-08 13:31:54 -0300] [3522] [INFO] Handling signal: term
+[2018-05-08 13:31:54 -0300] [3532] [INFO] Worker exiting (pid: 3532)
+[2018-05-08 13:31:54 -0300] [3522] [INFO] Shutting down: Master
+[2018-05-08 13:31:55 -0300] [3575] [INFO] Starting gunicorn 19.7.1
+[2018-05-08 13:31:55 -0300] [3575] [INFO] Listening at: http://127.0.0.1:8002 (3575)
+[2018-05-08 13:31:55 -0300] [3575] [INFO] Using worker: sync
+[2018-05-08 13:31:55 -0300] [3582] [INFO] Booting worker with pid: 3582
+[2018-05-08 13:31:55 -0300] [3583] [INFO] Booting worker with pid: 3583
+[2018-05-08 13:31:56 -0300] [3588] [INFO] Booting worker with pid: 3588
+[2018-05-08 13:31:56 -0300] [3591] [INFO] Booting worker with pid: 3591
+[2018-05-08 13:31:56 -0300] [3597] [INFO] Booting worker with pid: 3597
+[2018-05-08 13:31:56 -0300] [3599] [INFO] Booting worker with pid: 3599
+Not Found: /favicon.ico
