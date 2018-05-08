@@ -25,7 +25,7 @@ SECRET_KEY = '!+3%#)u5e7%7k=82$1n11-##bhb!8$1=0^(^-98c)n-rvlvff-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['calendario.jujuy.gob.ar']
+ALLOWED_HOSTS = ['calendario.jujuy.gob.ar', 'localhost']
 
 
 # Application definition
@@ -123,7 +123,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "archivos")
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, "static_source"),
 ]
 
 #Sistema de accesos:
