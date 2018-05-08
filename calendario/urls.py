@@ -20,8 +20,9 @@ from django.conf.urls.static import static
 from django.conf.urls import url
 
 urlpatterns = [
+    #Modulos standard
     path('admin/', admin.site.urls),
-
+    url(r'^tinymce/', include('tinymce.urls')),
     #Proyectos Propios
     path('', include('core.urls')),
 ]

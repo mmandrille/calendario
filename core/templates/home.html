@@ -7,8 +7,19 @@
         {% for evento in eventos %}
         <li>
             <h2>{{ evento.nombre }} - Hora: {{ evento.fecha_inicio.hour }}:{{ evento.fecha_inicio.minute }} hasta {{ evento.fecha_fin.hour }}:{{ evento.fecha_fin.minute }}</h2>
-            <p>{{ evento.descripcion }}</p>
+            <p>{{ evento.descripcion|safe }}</p>
         </li>
         {% endfor %}
+    </ul>
+    <h2> Destacados </h2>
+    <ul>
+        {% for importante in importantes %}
+        <li>
+            <h2>{{ importante.nombre }}</h2> 
+            <p>Fecha: {{ importante.fecha_inicio.date }}</p>
+            <p>Hora: {{ importante.fecha_inicio.hour }}:{{ importante.fecha_inicio.minute }} hasta {{ importante.fecha_fin.hour }}:{{ evento.fecha_fin.minute }}</p>
+            <p>{{ importante.descripcion|safe }}</p>
+        </li>
+        {% endfor %}       
     </ul>
 {% endblock %}
