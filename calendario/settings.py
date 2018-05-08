@@ -25,7 +25,7 @@ SECRET_KEY = '!+3%#)u5e7%7k=82$1n11-##bhb!8$1=0^(^-98c)n-rvlvff-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [calendario.jujuy.gob.ar]
 
 
 # Application definition
