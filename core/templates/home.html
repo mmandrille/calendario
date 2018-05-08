@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Calendario para hoy: {{ hoy }} </h1>
+    <hr>
+    <ul>
+        {% for evento in eventos %}
+        <li>
+            <h2>{{ evento.nombre }} - Hora: {{ evento.fecha.hour }}:{{ evento.fecha.minute }} </h2>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
