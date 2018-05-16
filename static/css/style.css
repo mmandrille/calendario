@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'Archia';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Archia'), url('../fonts/Archia-Thin.otf') format('truetype');
+  }
+
+body
+{
+   font-family: Archia !important;
+}

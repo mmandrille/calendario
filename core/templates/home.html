@@ -11,6 +11,8 @@
         </li>
         {% endfor %}
     </ul>
+
+    {% if importantes %}
     <h2> Destacados </h2>
     <ul>
         {% for importante in importantes %}
@@ -22,4 +24,5 @@
         </li>
         {% endfor %}       
     </ul>
+    {% endif %}
 {% endblock %}
