@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style type="text/css">
+    div.eventos {
+        position: relative;
+        width: 50%;
+        margin: 0 auto;
+        width: 300px;
+        height: 100px;
+    }
+    p {
+        color:blue
+    }
+</style>
+
+<script>
+    /* Creamos nuestra funcion para levantar Jsons desde WebService */
+    var getJSON = function(url, callback) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.responseType = 'json';
+        xhr.onload = function() {
+        var status = xhr.status;
+        if (status === 200) {
+            callback(null, xhr.response);
+        } else {
+            callback(status, xhr.response);
+        }
+        };
+        xhr.send();
+    };
+
+    /* Funcion que crea los elementos en el html */
+    function renderizar(t_nombre, t_inicio, t_duracion) {
+        var currentFocus;
+            var a, b, i;
+            /* Creamos el bloque principal */
+            bloque = document.createElement("DIV");
+            bloque.setAttribute("id", "eventos");
+            bloque.setAttribute("class", "eventos");
+            /* Lo agregamos al HTML */
+            document.body.appendChild(bloque);
+            for (i = 0; i < t_nombre.length; i++) {
+                /* Creamos el DIV de cada Evento */
+                div = document.createElement("DIV");
+                div.setAttribute("id", "evento");
+                div.setAttribute("class", "evento");
+                /* Lo metemos dentro del bloque de eventos */
+                bloque.appendChild(div);
+
+                /*Comenzamos a generar los elementos de texto que contendra*/
+                h3 = document.createElement("h3");
+                h3.innerHTML = t_nombre[i];
+                div.appendChild(h3);
+
+                p = document.createElement("p");
+                p.innerHTML = "Inicio: " + t_inicio[i];
+                div.appendChild(p);
+
+                p = document.createElement("p");
+                p.innerHTML = "Duracion: " + t_duracion[i];
+                div.appendChild(p);
+
+                hr = document.createElement("hr");
+                div.appendChild(hr)
+                };
+            };
+    
+    /* EMPEZAMOS EL PROCESAMIENTO */
+    /*Instanciamos nuestros 3 arrays*/
+    var nombre = [];
+    var inicio = [];
+    var duracion = [];
+
+
+  /*Obtenemos todos los tramites que tiene el sistema desde el web service:*/
+  getJSON('/ws_eventos',
+          function(err, json_ev) 
+          {
+            for (i = 0; i < json_ev.eventos.length; i++) 
+            {
+                nombre[i] = json_ev.eventos[i].nombre;
+                inicio[i] = json_ev.eventos[i].inicio;
+                duracion[i] = json_ev.eventos[i].duracion;
+            }
+            renderizar(nombre, inicio, duracion);
+          }
+        );
+    
+    /* Escribimos el HTML */    
+    
+</script>
+{% endblock %}
