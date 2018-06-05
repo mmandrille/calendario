@@ -103,6 +103,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+#Configuraciones Propias
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
@@ -115,9 +116,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
-STATIC_URL = '/static/'
-
-#Configuraciones Propias
 MEDIA_URL = 'archivos/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "archivos")
 STATIC_URL = '/static/'
@@ -131,12 +129,17 @@ LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 LOGIN_REDIRECT_URL = '/'
 
-# Configurar correos
+#Configuracion de Mail
 EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = ''
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'tusuario@gmail.com'
+EMAIL_HOST_USER = 'tucorreo@dominio.com'
 EMAIL_HOST_PASSWORD = 'tupassword'
+#CREAR ARCHIVO credenciales.py solo para Sobre Escribir con las variables importadas
+try:
+    from .credenciales import *
+except ImportError:
+    pass
 
 
 #Actualizar Statics, no solo nuevas
