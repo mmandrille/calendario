@@ -9,3 +9,9 @@ body
 {
    font-family: Archia !important;
 }
+
+.plantilla {
+  margin: auto;
+  width: 33%;
+  padding: 20px;
+}

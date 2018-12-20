@@ -85,6 +85,14 @@
                 duracion[i] = json_ev.eventos[i].duracion;
             }
             renderizar(nombre, inicio, duracion);
+            
+            for (i = 0; i < json_ev.importantes.length; i++) 
+            {
+                nombre[i] = json_ev.importantes[i].nombre;
+                inicio[i] = json_ev.importantes[i].inicio;
+                duracion[i] = json_ev.importantes[i].duracion;
+            }
+            renderizar(nombre, inicio, duracion);
           }
         );
     

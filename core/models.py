@@ -3,19 +3,10 @@ import datetime
 
 from django.db import models
 from django.contrib.auth.models import User
+#Import Modulos Extras
 from tinymce.models import HTMLField
-#Para api
-import requests 
-import json
-
-#Funciones API
-def obtener_organismos():
-	r = requests.get('http://organigrama.jujuy.gob.ar/ws_org/')
-	orgs = json.loads(r.text)['data']
-	organismos = list()
-	for org in orgs:
-		organismos.append((org['id'],org['nombre']))
-	return organismos
+#Import propios
+from core.api import obtener_organismos
 
 #Create your models here.
 class Evento(models.Model):
@@ -32,6 +23,7 @@ class Evento(models.Model):
     def as_dict(self):
         return {
             "nombre": self.nombre,
+            "descripcion": self.descripcion,
             "inicio": "{:%d/%m/%Y - %H:%M}".format(self.fecha_inicio),
             "duracion": ':'.join(str(self.fecha_fin-self.fecha_inicio).split(':')[:2]),
         }
