@@ -10,8 +10,17 @@ body
    font-family: Archia !important;
 }
 
+.principal{
+  display: flex; /* equal height of the children */
+  margin: auto;
+  width: 60%;
+  padding: 20px;
+}
+
 .plantilla {
   margin: auto;
+  width: 50%;
+}
+.organismos {
   width: 33%;
-  padding: 20px;
 }
