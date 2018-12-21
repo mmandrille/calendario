@@ -3,11 +3,12 @@
 {% block content %}
 <style type="text/css">
     div.eventos {
-        position: relative;
-        width: 50%;
+        width: 33%;
         margin: 0 auto;
-        width: 300px;
-        height: 100px;
+    }
+    div.importantes {
+        width: 33%;
+        margin: 0 auto;
     }
     p {
         color:blue
@@ -32,15 +33,20 @@
     };
 
     /* Funcion que crea los elementos en el html */
-    function renderizar(t_nombre, t_inicio, t_duracion) {
+    function renderizar(tipo, titulo, t_nombre, t_inicio, t_duracion) {
         var currentFocus;
             var a, b, i;
             /* Creamos el bloque principal */
             bloque = document.createElement("DIV");
             bloque.setAttribute("id", "eventos");
-            bloque.setAttribute("class", "eventos");
+            bloque.setAttribute("class", tipo);
             /* Lo agregamos al HTML */
             document.body.appendChild(bloque);
+
+            h1 = document.createElement("h1");
+            h1.innerHTML = titulo;
+            bloque.appendChild(h1);
+
             for (i = 0; i < t_nombre.length; i++) {
                 /* Creamos el DIV de cada Evento */
                 div = document.createElement("DIV");
@@ -66,33 +72,35 @@
                 div.appendChild(hr)
                 };
             };
-    
-    /* EMPEZAMOS EL PROCESAMIENTO */
-    /*Instanciamos nuestros 3 arrays*/
-    var nombre = [];
-    var inicio = [];
-    var duracion = [];
 
-
+  /* EMPEZAMOS EL PROCESAMIENTO */
   /*Obtenemos todos los tramites que tiene el sistema desde el web service:*/
   getJSON('/ws_eventos',
           function(err, json_ev) 
           {
+            /*Instanciamos nuestros 3 arrays*/
+            var nombre = [];
+            var inicio = [];
+            var duracion = [];
             for (i = 0; i < json_ev.eventos.length; i++) 
             {
                 nombre[i] = json_ev.eventos[i].nombre;
                 inicio[i] = json_ev.eventos[i].inicio;
                 duracion[i] = json_ev.eventos[i].duracion;
             }
-            renderizar(nombre, inicio, duracion);
-            
+            renderizar("eventos","Eventos para hoy:", nombre, inicio, duracion);
+
+            /*Instanciamos nuestros 3 arrays*/
+            var nombre = [];
+            var inicio = [];
+            var duracion = [];
             for (i = 0; i < json_ev.importantes.length; i++) 
             {
                 nombre[i] = json_ev.importantes[i].nombre;
                 inicio[i] = json_ev.importantes[i].inicio;
                 duracion[i] = json_ev.importantes[i].duracion;
             }
-            renderizar(nombre, inicio, duracion);
+            renderizar("importantes", "Proximos Destacados:", nombre, inicio, duracion);
           }
         );
     
